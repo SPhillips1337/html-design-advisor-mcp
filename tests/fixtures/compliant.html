@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Accessible example</title>
+  <style>
+    @media (max-width: 640px) { main { padding: 1rem; } }
+    :focus-visible { outline: 2px solid currentColor; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms; } }
+  </style>
+</head>
+<body>
+  <header><nav aria-label="Main"><a href="#main">Skip to content</a></nav></header>
+  <main id="main"><h1>Example page</h1><img src="mark.svg" alt="Example mark"></main>
+</body>
+</html>

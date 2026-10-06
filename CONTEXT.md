@@ -1,0 +1,11 @@
+# Context
+
+- Workspace root: `C:/Users/steph/Documents/development/ui-design`
+- Project: `html-design-advisor-mcp/`
+- Target: local stdio MCP server, advisory and read-only. Catalog root defaults to the workspace; HTML audit root defaults to this project directory.
+- Existing evidence: sibling `beautiful-html-templates` contains an indexed set of 34 HTML slide-deck templates and is MIT-licensed; its own agent guide requires user preference and preview steps for deck generation. `SKILL.md` contains detailed distinctive-frontend design guidance. `spec.md` is a design-token specification. Other repositories include frontend-slides, shadcn/ui, UI layouts, Astro Spatial, Liquid DOM, and Kami.
+- External source terms pages checked on 2026-10-06 for html.design, Colorlib, TemplateMo, uiCookies, W3.CSS, and dawidolko/Website-Templates; evidence is in `docs/research/2026-10-06-template-source-terms.md`. Provider-level terms were checked, but individual template and bundled asset rights remain unverified.
+- Constraints: do not modify sibling projects; do not bulk-download or redistribute third-party templates; surface attribution/license conditions; treat external content as untrusted. HTML review reads at most 1 MB of an explicit `.html`/`.htm` path as inert text and rejects resolved paths outside its configured audit root.
+- Implemented MCP tools: `search_templates`, `recommend_design`, `list_design_references`, `get_design_guidance`, and `audit_local_html`; resources: `design-advisor://sources` and `design-advisor://local-assets`.
+- Verification: 18 unit tests passed and a live MCP client discovered all five tools/two resources, invoked recommendation and HTML review, and read both resources.
+- Remaining: verify individual asset provenance/license for any template selected; expand website-specific examples with that evidence; and choose an MCP client before registration. No user client config has been changed.
