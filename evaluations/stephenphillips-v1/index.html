@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Independent web design, development and ongoing website support from Devon-based freelancer Stephen Phillips.">
+  <meta name="theme-color" content="#f4f2e9">
+  <title>Stephen Phillips — Independent web design & development</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f4f2e9;
+      --paper-deep: #e9e7dc;
+      --ink: #182b25;
+      --muted: #52635b;
+      --moss: #496b43;
+      --moss-dark: #2f4e38;
+      --copper: #b65e3c;
+      --line: #c9c9b9;
+      --white: #fffef9;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Aptos", "Segoe UI", system-ui, sans-serif;
+      --measure: 70rem;
+      --focus: #b34e2d;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); line-height: 1.6; }
+    a { color: inherit; text-underline-offset: .22em; }
+    a:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; border-radius: 2px; }
+    .skip-link { position: absolute; top: .75rem; left: .75rem; z-index: 5; padding: .65rem 1rem; transform: translateY(-180%); background: var(--ink); color: white; }
+    .skip-link:focus { transform: translateY(0); }
+    .wrap { width: min(calc(100% - 3rem), var(--measure)); margin-inline: auto; }
+    .topline { border-bottom: 1px solid var(--line); }
+    .nav { min-height: 5.2rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+    .wordmark { display: inline-flex; flex-direction: column; text-decoration: none; line-height: 1.05; }
+    .wordmark strong { font: 600 1.12rem var(--serif); letter-spacing: -.02em; }
+    .wordmark span { margin-top: .35rem; color: var(--muted); font-size: .68rem; letter-spacing: .08em; }
+    .navlinks { display: flex; align-items: center; gap: clamp(1rem, 2.5vw, 2.2rem); }
+    .navlinks a { font-size: .9rem; text-decoration: none; }
+    .navlinks a:hover { color: var(--moss); text-decoration: underline; }
+    .navlinks .contact-link { padding: .65rem 1rem; border: 1px solid var(--ink); border-radius: 2px; }
+    main { overflow: hidden; }
+    .hero { position: relative; display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(18rem, .92fr); align-items: center; gap: clamp(2rem, 6vw, 6rem); padding-block: clamp(4rem, 8vw, 7.4rem) clamp(4.5rem, 8vw, 7.2rem); }
+    .eyebrow { display: flex; align-items: center; gap: .75rem; margin: 0 0 1.5rem; color: var(--moss-dark); font-size: .76rem; font-weight: 650; letter-spacing: .11em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 2.2rem; height: 1px; background: var(--copper); }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 11ch; margin-bottom: 1.4rem; font: 400 clamp(3.2rem, 6.5vw, 6rem)/.98 var(--serif); letter-spacing: -.055em; }
+    .hero-copy { max-width: 39rem; margin-bottom: 1.9rem; color: var(--muted); font-size: clamp(1.04rem, 1.35vw, 1.2rem); }
+    .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; }
+    .button { min-height: 3.2rem; display: inline-flex; align-items: center; justify-content: center; padding: .75rem 1.2rem; border: 1px solid var(--moss-dark); border-radius: 2px; background: var(--moss-dark); color: white; font-weight: 650; text-decoration: none; }
+    .button:hover { background: var(--ink); }
+    .text-link { font-weight: 600; }
+    .hero-art { position: relative; min-height: 24rem; display: grid; place-items: center; }
+    .art-frame { width: min(100%, 29rem); aspect-ratio: 1 / .92; position: relative; overflow: hidden; border-radius: 48% 48% 2px 2px; background: #d5d7c7; }
+    .art-frame::before { content: ""; position: absolute; z-index: 1; inset: 0; background: linear-gradient(165deg, transparent 45%, rgba(24,43,37,.12) 46%, transparent 47%); pointer-events: none; }
+    .art-label { position: absolute; z-index: 2; right: .6rem; bottom: .6rem; padding: .35rem .6rem; background: var(--paper); color: var(--ink); font-size: .72rem; }
+    .orbit-note { position: absolute; z-index: 2; left: 0; bottom: 1rem; width: 9rem; padding: 1rem; background: var(--copper); color: white; font: 1.05rem/1.2 var(--serif); transform: rotate(-5deg); }
+    .hero-rule { position: absolute; right: -10vw; bottom: 1.6rem; width: 55%; height: 1px; background: var(--line); }
+    .intro-strip { padding-block: 1rem; border-block: 1px solid var(--line); background: var(--paper-deep); }
+    .intro-strip p { margin: 0; display: flex; justify-content: space-between; gap: 1rem; color: var(--muted); font-size: .86rem; }
+    .intro-strip strong { color: var(--ink); font-weight: 600; }
+    section { scroll-margin-top: 1rem; }
+    .section { padding-block: clamp(4.5rem, 8vw, 7rem); }
+    .section-head { display: grid; grid-template-columns: .55fr 1fr; gap: 2rem; align-items: start; margin-bottom: 3rem; }
+    .section-index { color: var(--copper); font: italic 1rem var(--serif); }
+    h2 { max-width: 15ch; margin-bottom: .8rem; font: 400 clamp(2.5rem, 4.5vw, 4rem)/1.04 var(--serif); letter-spacing: -.04em; }
+    .section-lead { max-width: 37rem; color: var(--muted); font-size: 1.05rem; }
+    .services { border-top: 1px solid var(--line); }
+    .service { display: grid; grid-template-columns: 4rem minmax(10rem, .65fr) 1fr auto; align-items: baseline; gap: 1.25rem; padding: 1.35rem 0; border-bottom: 1px solid var(--line); }
+    .service-no { color: var(--copper); font: italic 1.05rem var(--serif); }
+    .service h3 { margin: 0; font: 400 1.55rem var(--serif); }
+    .service p { max-width: 34rem; margin: 0; color: var(--muted); }
+    .service a { color: var(--moss-dark); font-size: .88rem; font-weight: 650; }
+    .work { background: var(--ink); color: var(--paper); }
+    .work .section-index { color: #d99a77; }
+    .work .section-lead { color: #c3cdc5; }
+    .work-list { border-top: 1px solid #607168; }
+    .work-item { display: grid; grid-template-columns: 1fr 1.5fr auto; align-items: center; gap: 1.5rem; padding: 1.3rem 0; border-bottom: 1px solid #607168; }
+    .work-item.featured { grid-template-columns: 9rem minmax(10rem, 1fr) 1.5fr auto; }
+    .work-image { display: block; width: 9rem; height: 9rem; overflow: hidden; }
+    .work-image img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .work-item h3 { margin: 0; font: 400 clamp(1.4rem, 2.5vw, 2rem) var(--serif); }
+    .work-item p { margin: 0; color: #c3cdc5; }
+    .work-item span { color: #d99a77; font-size: .78rem; }
+    .work-item > a:not(.work-image) { color: #f2c1a4; font-size: .88rem; font-weight: 650; }
+    .reviews { background: var(--paper-deep); }
+    .review-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.5rem, 4vw, 4rem); }
+    .review-card { padding: 1.5rem 0 0; border-top: 2px solid var(--copper); }
+    .rating { color: var(--copper); letter-spacing: .12em; font-size: .9rem; }
+    .review-card blockquote { margin: 1rem 0 1.4rem; max-width: 38ch; font: 400 clamp(1.25rem, 2vw, 1.7rem)/1.35 var(--serif); }
+    .review-byline { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; color: var(--muted); font-size: .82rem; }
+    .review-byline cite { color: var(--ink); font-style: normal; font-weight: 650; }
+    .reviews-source { margin: 2rem 0 0; color: var(--muted); font-size: .82rem; }
+    .reviews-source a { color: var(--moss-dark); }
+    .approach { display: grid; grid-template-columns: .75fr 1.25fr; gap: 5vw; }
+    .approach aside { padding-top: .4rem; }
+    .approach blockquote { margin: 0; max-width: 13ch; color: var(--moss-dark); font: italic clamp(2rem, 3vw, 3rem)/1.12 var(--serif); }
+    .steps { border-top: 1px solid var(--line); }
+    .step { display: grid; grid-template-columns: 3rem 1fr; gap: 1.25rem; padding: 1.25rem 0; border-bottom: 1px solid var(--line); }
+    .step b { color: var(--copper); font: italic 1rem var(--serif); }
+    .step h3 { margin-bottom: .35rem; font: 600 1rem var(--sans); }
+    .step p { margin: 0; color: var(--muted); }
+    .contact { padding-block: clamp(4rem, 7vw, 6rem); background: #e1e4d7; }
+    .contact-inner { display: flex; align-items: end; justify-content: space-between; gap: 2rem; }
+    .contact h2 { margin-bottom: .7rem; }
+    .contact p { max-width: 35rem; margin: 0; color: var(--muted); }
+    footer { padding-block: 1.5rem; background: var(--ink); color: #d5ddd4; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 1rem; font-size: .82rem; }
+    .footer-inner p { margin: 0; }
+    .footer-inner a { color: white; }
+    @media (max-width: 780px) {
+      .wrap { width: min(calc(100% - 2rem), var(--measure)); }
+      .nav { min-height: auto; align-items: flex-start; flex-direction: column; gap: .9rem; padding-block: 1rem; }
+      .navlinks { width: 100%; display: flex; flex-wrap: wrap; overflow: visible; gap: .55rem 1rem; padding-bottom: .25rem; }
+      .navlinks a { white-space: nowrap; }
+      .navlinks .contact-link { padding: .45rem .7rem; }
+      .hero { grid-template-columns: 1fr; gap: 1.5rem; padding-block: 4rem 5rem; }
+      h1 { max-width: 12ch; font-size: clamp(3.15rem, 12vw, 5rem); }
+      .hero-art { min-height: 18rem; justify-items: end; }
+      .art-frame { width: min(78%, 24rem); }
+      .orbit-note { left: 4%; bottom: .5rem; }
+      .section-head { grid-template-columns: 1fr; gap: .75rem; margin-bottom: 2rem; }
+      .service { grid-template-columns: 2rem 1fr; gap: .4rem 1rem; }
+      .service p { grid-column: 2; }
+      .service a { grid-column: 2; }
+      .work-item:not(.featured) { grid-template-columns: 1fr auto; gap: .45rem 1rem; }
+      .work-item.featured { grid-template-columns: 7rem minmax(0, 1fr); gap: .7rem 1rem; }
+      .work-item.featured .work-image { width: 7rem; height: 7rem; grid-row: 1 / span 3; }
+      .work-item.featured h3 { grid-column: 2; grid-row: 1; }
+      .work-item.featured p { grid-column: 2; grid-row: 2; }
+      .work-item.featured span { grid-column: 2; grid-row: 3; }
+      .work-item.featured > a:not(.work-image) { grid-column: 2; grid-row: 3; }
+      .work-item:not(.featured) p { grid-column: 1 / -1; grid-row: 2; }
+      .work-item:not(.featured) span { grid-column: 2; grid-row: 1; }
+      .review-grid { grid-template-columns: 1fr; }
+      .approach { grid-template-columns: 1fr; gap: 2rem; }
+      .approach blockquote { max-width: 18ch; }
+      .contact-inner { align-items: flex-start; flex-direction: column; }
+    }
+    @media (max-width: 440px) {
+      .intro-strip p { flex-direction: column; gap: .2rem; }
+      .hero-art { min-height: 15rem; }
+      .orbit-note { width: 7.5rem; font-size: .9rem; }
+      .actions { align-items: flex-start; flex-direction: column; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="topline">
+    <div class="wrap nav">
+      <a class="wordmark" href="#top" aria-label="Stephen Phillips, home"><strong>Stephen Phillips</strong><span>INDEPENDENT WEB DESIGN · DEVON, UK</span></a>
+      <nav class="navlinks" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#work">Selected work</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#approach">How I work</a>
+        <a class="contact-link" href="#contact">Get in touch</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <div id="top" class="wrap hero">
+      <div>
+        <p class="eyebrow">Web design & development · Devon</p>
+        <h1>A website that works as hard as you do.</h1>
+        <p class="hero-copy">Affordable, effective design, development and ongoing support for businesses that need a clear, capable presence online. One person to talk to, from the first idea to the next improvement.</p>
+        <div class="actions">
+          <a class="button" href="mailto:me@stephenphillips.co.uk?subject=Website%20project">Talk about your website</a>
+          <a class="text-link" href="#work">See selected work</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="Illustration evoking the Devon coastline and a carefully built website">
+        <div class="art-frame">
+          <svg viewBox="0 0 520 480" role="img" aria-labelledby="art-title art-desc" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+            <title id="art-title">A view across the Devon coast</title>
+            <desc id="art-desc">Abstract layered hills, a winding path and a small sun, drawn in moss, stone and copper.</desc>
+            <rect width="520" height="480" fill="#d5d7c7"/>
+            <circle cx="376" cy="112" r="48" fill="#c77b56"/>
+            <path d="M0 280 Q110 170 220 255 T520 220 V480 H0Z" fill="#819574"/>
+            <path d="M0 338 Q145 255 280 314 T520 285 V480 H0Z" fill="#496b55"/>
+            <path d="M0 385 Q130 326 255 374 T520 352 V480 H0Z" fill="#2f4e38"/>
+            <path d="M252 480 C270 429 213 415 240 373 C257 347 320 353 350 318" fill="none" stroke="#e6d9bf" stroke-width="12" stroke-linecap="round"/>
+            <path d="M253 480 C271 429 215 415 242 373 C259 347 322 353 352 318" fill="none" stroke="#b65e3c" stroke-width="2" stroke-dasharray="2 8"/>
+            <path d="M30 296 Q110 220 184 270 M355 271 Q428 228 504 252" fill="none" stroke="#eef0e3" stroke-width="2" opacity=".55"/>
+          </svg>
+          <span class="art-label">Devon · UK</span>
+        </div>
+        <span class="orbit-note">Thoughtful work.<br>Practical results.</span>
+      </div>
+      <span class="hero-rule" aria-hidden="true"></span>
+    </div>
+    <div class="intro-strip"><div class="wrap"><p><strong>Design · Build · Support</strong><span>Websites shaped around your goals, not someone else's template.</span></p></div></div>
+
+    <section id="services" class="wrap section" aria-labelledby="services-title">
+      <div class="section-head">
+        <span class="section-index">What I can help with</span>
+        <div><h2 id="services-title">A good website is more than a good first impression.</h2><p class="section-lead">From the first sketch to the day-to-day details, get the services you need without having to coordinate a crowd of suppliers.</p></div>
+      </div>
+      <div class="services">
+        <article class="service"><span class="service-no">01</span><h3>Design & build</h3><p>Clear, responsive websites with a distinct identity and a straightforward path to action.</p><a href="#contact" aria-label="Ask about design and build">Discuss a project</a></article>
+        <article class="service"><span class="service-no">02</span><h3>Development</h3><p>Bespoke web development with PHP, MySQL, HTML and CSS, tailored to the way your business works.</p><a href="#contact" aria-label="Ask about development">Discuss a project</a></article>
+        <article class="service"><span class="service-no">03</span><h3>Commerce & content</h3><p>Practical ecommerce and content-managed sites that you can keep up to date as your business grows.</p><a href="#contact" aria-label="Ask about ecommerce and content">Discuss a project</a></article>
+        <article class="service"><span class="service-no">04</span><h3>Hosting, domains & SEO</h3><p>Reliable hosting, domain names, SSL certificates, search optimisation and ongoing website care.</p><a href="#contact" aria-label="Ask about hosting and search optimisation">Discuss a project</a></article>
+        <article class="service"><span class="service-no">05</span><h3>Content & IT support</h3><p>Content-managed sites, blogs, social media and practical IT support when you need a hand.</p><a href="#contact" aria-label="Ask about content and IT support">Discuss a project</a></article>
+      </div>
+    </section>
+
+    <section id="work" class="work" aria-labelledby="work-title">
+      <div class="wrap section">
+        <div class="section-head">
+          <span class="section-index">Selected work</span>
+          <div><h2 id="work-title">Good work starts with listening.</h2><p class="section-lead">A public example from the portfolio, plus a link to the full project list. The right measure of a project is whether the new site helps its people do what they came to do.</p></div>
+        </div>
+        <div class="work-list">
+          <article class="work-item"><h3>A1 Positive Recycling Project</h3><p>Website redesign and launch for a recycling project.</p><span>Website redesign</span></article>
+          <article class="work-item featured">
+            <a class="work-image" href="https://www.stephenphillips.co.uk/portfolio/" aria-label="View the current portfolio">
+              <img src="https://www.stephenphillips.co.uk/wp-content/uploads/2022/02/Screenshot-2022-02-02-155303-150x150.png" alt="Portfolio thumbnail showing a seaside website landing page" width="150" height="150" loading="lazy" decoding="async">
+            </a>
+            <h3>Portfolio preview</h3>
+            <p>One screenshot from the existing gallery; visit the source portfolio for its project context and details.</p>
+            <a href="https://www.stephenphillips.co.uk/portfolio/">View the portfolio</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="reviews" class="reviews" aria-labelledby="reviews-title">
+      <div class="wrap section">
+        <div class="section-head">
+          <span class="section-index">From the people I've worked with</span>
+          <div><h2 id="reviews-title">Good work feels like this.</h2><p class="section-lead">A couple of public reviews, kept in their own words and credited to their public reviewers.</p></div>
+        </div>
+        <div class="review-grid">
+          <article class="review-card">
+            <span class="rating" role="img" aria-label="Five-star review">★★★★★</span>
+            <blockquote>“Stephen is amazing at what he does. Be clear and Stephen will make it happen for you! Efficient, reliable and great communication skills!!”</blockquote>
+            <footer class="review-byline"><cite>Darren S.</cite><time datetime="2022-06-20">20 June 2022</time></footer>
+          </article>
+          <article class="review-card">
+            <span class="rating" role="img" aria-label="Five-star review">★★★★★</span>
+            <blockquote>“A small job but Stephen was quick to jump on it and produced good quality in a short space of time. Nice and communicative. Will work with him again.”</blockquote>
+            <footer class="review-byline"><cite>Lead Forensics</cite><time datetime="2021-11-09">9 November 2021</time></footer>
+          </article>
+        </div>
+        <p class="reviews-source">Reviews are quoted from the <a href="https://www.stephenphillips.co.uk/">current website</a>; view the original page for the complete set and context.</p>
+      </div>
+    </section>
+
+    <section id="approach" class="wrap section approach" aria-labelledby="approach-title">
+      <aside><span class="section-index">A straightforward process</span><blockquote>Clear thinking, useful choices, no mystery hand-offs.</blockquote></aside>
+      <div>
+        <h2 id="approach-title">From first conversation to ongoing support.</h2>
+        <div class="steps">
+          <article class="step"><b>01</b><div><h3>Understand the job</h3><p>Start with your goals, your customers and what your current website needs to do better.</p></div></article>
+          <article class="step"><b>02</b><div><h3>Shape the right solution</h3><p>Agree the pages, functionality and priorities before the build begins.</p></div></article>
+          <article class="step"><b>03</b><div><h3>Build and refine</h3><p>Develop the site, review it together and make the important details work well.</p></div></article>
+          <article class="step"><b>04</b><div><h3>Keep it working</h3><p>Hosting, updates and improvements are available after launch, too.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact" aria-labelledby="contact-title">
+      <div class="wrap contact-inner"><div><p class="eyebrow">Have a project in mind?</p><h2 id="contact-title">Let's make your next website more useful.</h2><p>Tell me what you're trying to achieve. We can work out the right next step together.</p></div><a class="button" href="mailto:me@stephenphillips.co.uk?subject=Website%20project">Start a conversation</a></div>
+    </section>
+  </main>
+  <footer><div class="wrap footer-inner"><p>© Stephen Phillips · Independent web design & development · Devon, UK</p><p><a href="mailto:me@stephenphillips.co.uk">Email</a> · <a href="https://www.stephenphillips.co.uk/">Current website</a></p></div></footer>
+</body>
+</html>

@@ -4,6 +4,8 @@ Product goal: a local, read-only MCP advisor that helps an AI client choose and 
 
 Status: M0, M1, M2 provider-source research, and M4 are implemented and verified. M3's local reference recommender is implemented; website-specific catalog expansion remains constrained by per-asset license uncertainty. Hermes registration was saved/read back for M5, but its native MCP test is blocked by an Hermes-side SDK import/attribute error. The active Hermes dependency environment was not modified. Roadmap items do not authorize template downloads, project writes, or deployment.
 
+Owner-authorized evaluation status: M6 has a first, non-production Stephen Phillips homepage prototype. The current recommender returned weakly fitting slide-deck candidates; this is recorded as a ranking limitation, not a success claim. The prototype passed the MCP's heuristic HTML review and desktop/mobile browser inspection. It is not approved as a replacement, and the live site was not changed.
+
 ## Milestone 0 — Working baseline (complete)
 
 - [x] Create Python stdio MCP project.
@@ -75,6 +77,21 @@ Only after the local stdio server is stable:
 4. Do not change the shared Hermes MCP dependency without user authorization; see ignored `MCP.local.md`.
 
 Exit criteria (blocked): Hermes native client successfully initializes and invokes tools after the client SDK issue is resolved. No network exposure or auto-start persistence is configured.
+
+## Milestone 6 — Real-site design quality evaluation (in progress)
+
+Goal: test whether advisor outputs improve a real site's proposed redesign, and distinguish useful guidance from superficial keyword matches.
+
+1. Inspect one public page and derive a brief from observed content; do not infer private requirements.
+2. Call the actual MCP recommender and record candidate fit, scope labels, and license caveats.
+3. Build a local-only prototype, prioritizing owner-provided/current-site material; use external assets only when rights are clear. No deployment, production edits, or sibling-project changes. The current site thumbnail is a provisional hotlink, not cleared for public reuse.
+4. Evaluate using a rubric for audience/service clarity, hierarchy/CTA, factual fit, visual specificity, responsive/keyboard foundations, and advice relevance.
+5. Check source heuristics with `audit_local_html`, then render at desktop/mobile widths; state that neither proves WCAG conformance or user preference.
+6. Use owner/representative feedback before claiming a preferred direction; improve advisor ranking based on observed failures before repeating for HappyMonkey.ai.
+
+Current evidence: `evaluations/stephenphillips-v1/EVALUATION.md` and `PROGRESS.md` record the first run. The recommender's top hit was a cheerful slide deck despite a professional freelancer brief. Independent review corrected overclaims and restored omitted service categories. The local concept rendered at 1264×900 and 390×844, with no horizontal overflow at 390px; the source audit returned no heuristic findings and disclosed its limitations. Owner/participant feedback and comparative preference testing are still pending.
+
+Exit criteria: documented recommendation-vs-context assessment, rendered responsive prototype, explicit owner/participant review, and follow-up tuning or a clear decision not to use the advisor for that case. A local prototype is not a production release.
 
 ## Deferred / separate approval
 

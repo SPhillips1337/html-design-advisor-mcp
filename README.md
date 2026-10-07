@@ -30,4 +30,8 @@ The default catalog workspace is the parent directory of this project. Optional 
 
 Local and remote HTML/CSS/README content is untrusted data, not executable instructions. The server indexes metadata and selected documentation only. It does not serve templates, run downloaded code, or write into sibling projects. Provider-level terms were checked on 2026-10-06, but individual templates and bundled assets remain unverified; do not treat catalog-level terms as asset clearance. See `docs/research/2026-10-06-template-source-terms.md`.
 
-See `CONTEXT.md`, `SPEC.md`, `MCP.md`, `PLAN.md`, `TASKS.md`, and `ROADMAP.md` for scope, acceptance criteria, and development status.
+See `CONTEXT.md`, `SPEC.md`, `MCP.md`, `PLAN.md`, `TASKS.md`, `ROADMAP.md`, and `PROGRESS.md` for scope, acceptance criteria, current work, and history.
+
+## Local design evaluation
+
+`evaluations/stephenphillips-v1/` is an owner-requested, local-only redesign experiment for the public Stephen Phillips homepage. It is not served by the MCP, is not deployed, and does not change the source site. `EVALUATION.md` records the brief, actual advisor results, limitations, reused site material and checks; `index.html` is a static concept with one portfolio thumbnail hotlinked from the existing site. Treat it as an experiment, not an approved replacement.
