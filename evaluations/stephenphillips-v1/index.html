@@ -76,21 +76,22 @@
     .work .section-index { color: #d99a77; }
     .work .section-lead { color: #c3cdc5; }
     .work-list { border-top: 1px solid #607168; }
-    .work-item { display: grid; grid-template-columns: 1fr 1.5fr auto; align-items: center; gap: 1.5rem; padding: 1.3rem 0; border-bottom: 1px solid #607168; }
-    .work-item.featured { grid-template-columns: 9rem minmax(10rem, 1fr) 1.5fr auto; }
-    .work-image { display: block; width: 9rem; height: 9rem; overflow: hidden; }
+    .work-item { display: grid; grid-template-columns: minmax(0, 1fr) 9rem auto; align-items: center; gap: 1.5rem; padding: 1.3rem 0; border-bottom: 1px solid #607168; }
+    .work-copy { grid-column: 1; min-width: 0; }
+    .work-image { display: block; grid-column: 2; width: 9rem; height: 9rem; overflow: hidden; }
     .work-image img { display: block; width: 100%; height: 100%; object-fit: cover; }
     .work-item h3 { margin: 0; font: 400 clamp(1.4rem, 2.5vw, 2rem) var(--serif); }
     .work-item p { margin: 0; color: #c3cdc5; }
-    .work-item span { color: #d99a77; font-size: .78rem; }
-    .work-item > a:not(.work-image) { color: #f2c1a4; font-size: .88rem; font-weight: 650; }
+    .work-item > span { grid-column: 2; justify-self: start; color: #d99a77; font-size: .78rem; }
+    .work-item > a:not(.work-image) { grid-column: 3; color: #f2c1a4; font-size: .88rem; font-weight: 650; }
     .reviews { background: var(--paper-deep); }
     .review-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.5rem, 4vw, 4rem); }
     .review-card { padding: 1.5rem 0 0; border-top: 2px solid var(--copper); }
     .rating { color: var(--copper); letter-spacing: .12em; font-size: .9rem; }
     .review-card blockquote { margin: 1rem 0 1.4rem; max-width: 38ch; font: 400 clamp(1.25rem, 2vw, 1.7rem)/1.35 var(--serif); }
-    .review-byline { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; color: var(--muted); font-size: .82rem; }
+    .review-byline { display: flex; flex-direction: column; align-items: flex-start; gap: .2rem; margin: 0; padding: 0; background: transparent; color: var(--ink); }
     .review-byline cite { color: var(--ink); font-style: normal; font-weight: 650; }
+    .review-byline time { color: var(--ink); font-size: 1rem; font-weight: 600; line-height: 1.4; }
     .reviews-source { margin: 2rem 0 0; color: var(--muted); font-size: .82rem; }
     .reviews-source a { color: var(--moss-dark); }
     .approach { display: grid; grid-template-columns: .75fr 1.25fr; gap: 5vw; }
@@ -105,7 +106,7 @@
     .contact-inner { display: flex; align-items: end; justify-content: space-between; gap: 2rem; }
     .contact h2 { margin-bottom: .7rem; }
     .contact p { max-width: 35rem; margin: 0; color: var(--muted); }
-    footer { padding-block: 1.5rem; background: var(--ink); color: #d5ddd4; }
+    .site-footer { padding-block: 1.5rem; background: var(--ink); color: #d5ddd4; }
     .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 1rem; font-size: .82rem; }
     .footer-inner p { margin: 0; }
     .footer-inner a { color: white; }
@@ -124,15 +125,12 @@
       .service { grid-template-columns: 2rem 1fr; gap: .4rem 1rem; }
       .service p { grid-column: 2; }
       .service a { grid-column: 2; }
-      .work-item:not(.featured) { grid-template-columns: 1fr auto; gap: .45rem 1rem; }
-      .work-item.featured { grid-template-columns: 7rem minmax(0, 1fr); gap: .7rem 1rem; }
-      .work-item.featured .work-image { width: 7rem; height: 7rem; grid-row: 1 / span 3; }
-      .work-item.featured h3 { grid-column: 2; grid-row: 1; }
-      .work-item.featured p { grid-column: 2; grid-row: 2; }
-      .work-item.featured span { grid-column: 2; grid-row: 3; }
-      .work-item.featured > a:not(.work-image) { grid-column: 2; grid-row: 3; }
-      .work-item:not(.featured) p { grid-column: 1 / -1; grid-row: 2; }
-      .work-item:not(.featured) span { grid-column: 2; grid-row: 1; }
+      .work-item { grid-template-columns: minmax(0, 1fr) auto; gap: .75rem 1rem; align-items: start; }
+      .work-copy { grid-column: 1 / -1; }
+      .work-item > span { grid-column: 1 / -1; }
+      .work-item.featured { grid-template-columns: 7rem minmax(0, 1fr); }
+      .work-item.featured .work-image { grid-column: 1; grid-row: 2; width: 7rem; height: 7rem; }
+      .work-item.featured > a:not(.work-image) { grid-column: 2; grid-row: 2; align-self: center; }
       .review-grid { grid-template-columns: 1fr; }
       .approach { grid-template-columns: 1fr; gap: 2rem; }
       .approach blockquote { max-width: 18ch; }
@@ -219,13 +217,15 @@
           <div><h2 id="work-title">Good work starts with listening.</h2><p class="section-lead">A public example from the portfolio, plus a link to the full project list. The right measure of a project is whether the new site helps its people do what they came to do.</p></div>
         </div>
         <div class="work-list">
-          <article class="work-item"><h3>A1 Positive Recycling Project</h3><p>Website redesign and launch for a recycling project.</p><span>Website redesign</span></article>
+          <article class="work-item">
+            <div class="work-copy"><h3>A1 Positive Recycling Project</h3><p>Website redesign and launch for a recycling project.</p></div>
+            <span>Website redesign</span>
+          </article>
           <article class="work-item featured">
+            <div class="work-copy"><h3>Portfolio preview</h3><p>One screenshot from the existing gallery; visit the source portfolio for its project context and details.</p></div>
             <a class="work-image" href="https://www.stephenphillips.co.uk/portfolio/" aria-label="View the current portfolio">
               <img src="https://www.stephenphillips.co.uk/wp-content/uploads/2022/02/Screenshot-2022-02-02-155303-150x150.png" alt="Portfolio thumbnail showing a seaside website landing page" width="150" height="150" loading="lazy" decoding="async">
             </a>
-            <h3>Portfolio preview</h3>
-            <p>One screenshot from the existing gallery; visit the source portfolio for its project context and details.</p>
             <a href="https://www.stephenphillips.co.uk/portfolio/">View the portfolio</a>
           </article>
         </div>
@@ -271,6 +271,6 @@
       <div class="wrap contact-inner"><div><p class="eyebrow">Have a project in mind?</p><h2 id="contact-title">Let's make your next website more useful.</h2><p>Tell me what you're trying to achieve. We can work out the right next step together.</p></div><a class="button" href="mailto:me@stephenphillips.co.uk?subject=Website%20project">Start a conversation</a></div>
     </section>
   </main>
-  <footer><div class="wrap footer-inner"><p>© Stephen Phillips · Independent web design & development · Devon, UK</p><p><a href="mailto:me@stephenphillips.co.uk">Email</a> · <a href="https://www.stephenphillips.co.uk/">Current website</a></p></div></footer>
+  <footer class="site-footer"><div class="wrap footer-inner"><p>© Stephen Phillips · Independent web design & development · Devon, UK</p><p><a href="mailto:me@stephenphillips.co.uk">Email</a> · <a href="https://www.stephenphillips.co.uk/">Current website</a></p></div></footer>
 </body>
 </html>

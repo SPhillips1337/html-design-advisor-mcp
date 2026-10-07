@@ -4,7 +4,7 @@ Product goal: a local, read-only MCP advisor that helps an AI client choose and 
 
 Status: M0, M1, M2 provider-source research, and M4 are implemented and verified. M3's local reference recommender is implemented; website-specific catalog expansion remains constrained by per-asset license uncertainty. Hermes registration was saved/read back for M5, but its native MCP test is blocked by an Hermes-side SDK import/attribute error. The active Hermes dependency environment was not modified. Roadmap items do not authorize template downloads, project writes, or deployment.
 
-Owner-authorized evaluation status: M6 has a first, non-production Stephen Phillips homepage prototype. The current recommender returned weakly fitting slide-deck candidates; this is recorded as a ranking limitation, not a success claim. The prototype passed the MCP's heuristic HTML review and desktop/mobile browser inspection. It is not approved as a replacement, and the live site was not changed.
+Owner-authorized evaluation status: M6 now has local-only Stephen Phillips and HappyMonkey.AI homepage concepts. Both cases exposed weak website relevance in a slide-deck-centered recommender; the evaluations record this as a limitation, not a success claim. The concepts passed the MCP's heuristic source review; browser checks are documented per evaluation. Neither is approved as a replacement, and neither public site was changed.
 
 ## Milestone 0 — Working baseline (complete)
 
@@ -84,12 +84,12 @@ Goal: test whether advisor outputs improve a real site's proposed redesign, and 
 
 1. Inspect one public page and derive a brief from observed content; do not infer private requirements.
 2. Call the actual MCP recommender and record candidate fit, scope labels, and license caveats.
-3. Build a local-only prototype, prioritizing owner-provided/current-site material; use external assets only when rights are clear. No deployment, production edits, or sibling-project changes. The current site thumbnail is a provisional hotlink, not cleared for public reuse.
+3. Build a local-only prototype, prioritizing owner-provided/current-site material; use external assets only when rights are clear. No deployment, production edits, or sibling-project changes. The Stephen thumbnail is a provisional hotlink, not cleared for public reuse; the HappyMonkey concept uses no external assets.
 4. Evaluate using a rubric for audience/service clarity, hierarchy/CTA, factual fit, visual specificity, responsive/keyboard foundations, and advice relevance.
 5. Check source heuristics with `audit_local_html`, then render at desktop/mobile widths; state that neither proves WCAG conformance or user preference.
-6. Use owner/representative feedback before claiming a preferred direction; improve advisor ranking based on observed failures before repeating for HappyMonkey.ai.
+6. Use owner/representative feedback before claiming a preferred direction; compare both cases and improve advisor ranking or retain an explicit limitation before choosing further evaluation targets.
 
-Current evidence: `evaluations/stephenphillips-v1/EVALUATION.md` and `PROGRESS.md` record the first run. The recommender's top hit was a cheerful slide deck despite a professional freelancer brief. Independent review corrected overclaims and restored omitted service categories. The local concept rendered at 1264×900 and 390×844, with no horizontal overflow at 390px; the source audit returned no heuristic findings and disclosed its limitations. Owner/participant feedback and comparative preference testing are still pending.
+Current evidence: `evaluations/stephenphillips-v1/EVALUATION.md`, `evaluations/happymonkey-v1/EVALUATION.md`, and `PROGRESS.md` record both runs. For HappyMonkey, all three returned recommendations were slide decks (scores 7/7/6); Daisy Days tied for first despite its own `avoid_for` warning about authority/precision. The manually authored local concept rendered at 1280×900; at 390×844 the DOM checks found no horizontal overflow, missing anchors, or project-column misalignment. Its source audit returned no heuristic findings, and a local vision review found the hierarchy/CTAs clear. The results are not user-preference evidence; comparative owner/participant review and recommendation-ranking improvements remain pending.
 
 Exit criteria: documented recommendation-vs-context assessment, rendered responsive prototype, explicit owner/participant review, and follow-up tuning or a clear decision not to use the advisor for that case. A local prototype is not a production release.
 

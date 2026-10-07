@@ -61,7 +61,8 @@ Status legend: `[x]` verified complete; `[ ]` pending. Keep this execution board
 - [x] Run `audit_local_html` and inspect desktop/mobile rendering and basic responsive/keyboard signals.
 - [x] Obtain an independent critique; remove unverified project/location claims, restore omitted services, and confirm the full hero rendering.
 - [x] Reuse one image from the existing homepage gallery by source URL and add two dated public reviews with reviewer attribution.
+- [x] Fix owner-reported testimonial date contrast/alignment and align work-row copy; verify at desktop and mobile sizes.
 - [ ] Confirm image/client-asset rights and current testimonial/attribution status before any public release.
 - [ ] Get owner/representative feedback and test an alternative design direction before claiming the redesign is preferred.
-- [ ] Improve MCP candidate ranking based on the observed mismatch (Daisy Days/BlockFrame/Broadside for a freelance-business homepage).
-- [ ] Repeat with happymonkey.ai only after the first evaluation is reviewed.
+- [ ] Improve MCP candidate ranking based on both observed mismatches (Daisy Days/BlockFrame/Broadside for a freelance-services homepage; Daisy Days/Studio/Capsule for HappyMonkey.AI).
+- [x] Repeat the local-only evaluation with HappyMonkey.AI at the owner's request; record actual MCP output, prototype and checks in `evaluations/happymonkey-v1/`.

@@ -31,18 +31,46 @@ The owner said the first visual concept looked nice and suggested reusing authen
 
 - Added one current-site portfolio screenshot as a direct remote image reference, not a copied asset. It is labeled as a general portfolio preview rather than associated with a specific project; client/asset rights need confirmation before public redistribution.
 - Added two publicly displayed reviews with their original wording, reviewer attribution and dates: Darren S. (20 June 2022) and Lead Forensics (9 November 2021). They are historical reviews and require owner confirmation before a public launch.
+- Fixed an owner-reported contrast problem: the site-wide `footer` rule had unintentionally given each review byline a dark-green background while leaving its date muted. Scoped the dark treatment to `.site-footer`, then set review dates to 16px, bold, dark ink, stacked and left-aligned beneath names.
+- Unified the work rows' copy column so A1's description stays with its heading; the unrelated thumbnail is a distinct general portfolio preview.
 - Updated `README.md`, `CONTEXT.md`, `PLAN.md`, `ROADMAP.md`, `TASKS.md`, and this progress record to describe the user feedback, reused material, limitations and remaining clearance work.
 
 ### Verification
 
 - `.venv/Scripts/python.exe -m pytest -q`: 18 passed; `.venv/Scripts/python.exe -m compileall -q src tests`: passed; `git diff --check`: passed.
-- `audit_local_html` after the update reviewed 21,105 bytes and returned no heuristic findings. It detected viewport, responsive CSS, visible-focus and reduced-motion hints; it does not fetch the remote image or render the page.
-- Browser checks: the portfolio image loaded at its native 150×150 size at desktop width. At 390×844, document width matched the viewport, all five navigation labels fit, review cards formed one 358px column, and internal fragment targets resolved. These checks do not establish WCAG conformance or user preference.
+- `audit_local_html` after the image/reviews and readability/layout refinements reviewed 21,166 bytes and returned no heuristic findings. It detected viewport, responsive CSS, visible-focus and reduced-motion hints; it does not fetch the remote image or render the page.
+- BrowserOS Neo checks after the correction: desktop title and description x-positions matched in both work rows; mobile 390×844 document width stayed 390px, navigation stayed within the viewport, reviewer dates appeared at 16px and left-aligned, and the review grid used one 358px column. The image preview and A1 entry are separate.
+- Calculated date contrast improved from 2.33:1 (`#52635b` on unintended `#182b25`) to 12.00:1 (`#182b25` on `#e9e7dc`). Local `google/gemma-4-e2b` vision review judged the updated mobile dates readable and the work preview clearly separate. These checks are not a full WCAG audit or user-preference test.
 
 ### Remaining
 
 - Confirm image/client-asset rights and current testimonial/attribution status before any public release.
 - Obtain owner/representative feedback on a comparative design direction before calling the prototype preferred.
-- Improve recommendation relevance and negative constraints based on the slide-deck mismatch; consider the HappyMonkey.ai evaluation afterward.
+- Improve recommendation relevance and negative constraints using both evaluations; see the HappyMonkey.AI results below.
 
-All work is local. The production website was not edited or deployed; the GitHub remote was not updated.
+All first-evaluation work remains local. The production website was not edited or deployed; the GitHub remote was not updated.
+
+## 2026-10-07 — Second real-site design-quality evaluation: HappyMonkey.AI
+
+The owner asked for a second test to see whether the HTML Design Advisor could help with a different site. The official homepage was reviewed as a factual reference; evidence, citations, advisor output and limitations are in `evaluations/happymonkey-v1/EVALUATION.md`. The live site was not changed.
+
+### Work completed
+
+- Called the actual MCP `recommend_design` with a software-first engineering portfolio brief and called `get_design_guidance` for the same case.
+- The top recommendations were Daisy Days (7), Studio (7) and Capsule (6). All were slide-deck visual references rather than website templates. Daisy Days tied for first despite its own `avoid_for` warning about contexts needing authority and precision; the current token-overlap scorer does not use that negative field to lower the score.
+- Manually authored `evaluations/happymonkey-v1/index.html`, a static concept that separates projects, open-source tools, About, writing and contact. It uses no copied third-party image, template, remote font or script. It is not generated or served by the MCP.
+- Documented the actual results, rubric, source citation, limitations and follow-up in `evaluations/happymonkey-v1/EVALUATION.md` and updated README, CONTEXT, PLAN, ROADMAP and TASKS.
+
+### Verification
+
+- `audit_local_html`: 22,891 bytes read; no heuristic findings; viewport, responsive CSS, visible focus, reduced-motion and semantic-landmark signals found. This is not a rendered audit or WCAG conformance result.
+- BrowserOS Neo rendered the final local page at 1280×900 and captured a desktop screenshot. It verified a two-line headline, grouped actions and a successful Projects anchor navigation.
+- At 390×844, DOM checks found `scrollWidth == clientWidth == 390`; no missing internal anchors; nine projects and six tools; project titles/descriptions aligned; tools and writing became single-column; hero actions wrapped within the viewport. Mobile evidence is from DOM/layout inspection, not a mobile screenshot.
+- The skip link became visible at the top of the viewport when focused. Selected text-pair contrast calculations ranged from 10.50:1 to 17.21:1; these do not cover every text/background state.
+- The local `google/gemma-4-e2b` screenshot review found the hierarchy and CTAs clear and suggested a little more vertical breathing room. That remains a subjective refinement note.
+- Citation verification for `EVALUATION.md` passed; the public homepage is its numbered source.
+- `.venv/Scripts/python.exe -m pytest -q`: 18 passed; `.venv/Scripts/python.exe -m compileall -q src tests` and `git diff --check` passed.
+
+### Result and remaining
+
+The second case confirms a repeated limitation: the advisor's slide-deck-centered references do not give reliable website structure or purpose-aware ranking. General guidance was useful as a checklist; the prototype itself was human-authored. M6 remains in progress pending comparative owner/participant preference feedback and recommendation-ranking improvements. Both concepts remain local and unapproved; no commit, push, production edit or deployment was made.

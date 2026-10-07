@@ -38,6 +38,12 @@ On 2026-10-07, the owner said the first visual concept looked nice and suggested
 
 The reviews section reproduces two reviews publicly displayed on the homepage, preserving their wording, reviewer attribution, and date: Darren S. (20 June 2022) and Lead Forensics (9 November 2021). Source: `https://www.stephenphillips.co.uk/`. These are historical testimonials; confirm their current status and any attribution requirements before a public launch.
 
+## Refinement — date readability and work-row alignment (2026-10-07)
+
+Owner review noted that the review dates were small, right-aligned, and low-contrast on a dark green strip. Inspection found the generic page-footer rule was also styling each review's semantic `<footer>`: date text `#52635b` on the accidental `#182b25` background measured 2.33:1, below the 4.5:1 WCAG AA normal-text threshold. The global rule is now scoped to `.site-footer`; review bylines use the light review surface with ink text, stack reviewer then date on the left, and set dates to 16px/600. The resulting ink-on-review-surface contrast (`#182b25` on `#e9e7dc`) measures 12.00:1.
+
+The work items now share one text column: each heading and its own description stay grouped and start at the same left edge. The A1 project has no associated screenshot; the thumbnail remains explicitly labeled as a separate, generic portfolio preview.
+
 ## Evaluation rubric (heuristic, 1 = weak, 5 = strong)
 
 The scores are the designer's first-pass judgments, not independently validated results. The independent review identified potential factual overreach and missing service coverage; those were corrected in the prototype before these notes were finalized. Owner verification and user research remain outstanding.
@@ -57,9 +63,9 @@ Scores are design-review judgments, not user research or an automated benchmark.
 ## Verification performed
 
 - Direct MCP call to `recommend_design`: returned the three references above, with the slide-deck caveat and per-asset license warnings.
-- Direct MCP call to `audit_local_html` after adding reused page material: `status=reviewed`, 21,105 bytes, no heuristic findings; viewport, responsive CSS, focus and reduced-motion signals found. This tool does not execute/render the page or fetch the remote image and is not a full WCAG audit.
+- Direct MCP call to `audit_local_html` after the image/reviews and readability/layout refinements: `status=reviewed`, 21,166 bytes, no heuristic findings; viewport, responsive CSS, focus and reduced-motion signals found. This tool does not execute/render the page or fetch the remote image and is not a full WCAG audit.
 - Independent review: flagged potential town/client overreach, omitted service categories, unsupported explanation for the scoring issue, and an initial viewport screenshot that cut off the hero's lower edge. Removed the unverified second client/project description, retained only Devon, added domains/SSL/content/social/IT support, and checked the scoring code directly. A 1264×900 render shows the note and CTA fully inside the hero; DOM bounds confirm the note stays within its container.
-- Browser checks after the reuse update: at desktop width the exact source image loaded at 150×150 with descriptive alt text; at mobile 390×844 the document width matched the viewport, review cards switched to one 358px column, all navigation items fit, and internal fragment targets resolved. No production site was changed.
+- BrowserOS Neo checks after owner feedback: desktop title/description x-positions matched across the A1 and generic portfolio rows; at 390×844 the document width equaled the viewport, review dates were 16px and left-aligned under names, review cards used one 358px column, and navigation stayed within the viewport. The screenshot remained separate from the A1 entry. A local `google/gemma-4-e2b` vision review agreed that the mobile dates were readable and left-aligned and the portfolio preview was clearly separate. Contrast ratios were independently calculated; this is not a full WCAG audit. No production site was changed.
 
 ## Next experiment
 
