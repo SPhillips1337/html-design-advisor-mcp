@@ -48,7 +48,7 @@ The owner said the first visual concept looked nice and suggested reusing authen
 - Obtain owner/representative feedback on a comparative design direction before calling the prototype preferred.
 - Improve recommendation relevance and negative constraints using both evaluations; see the HappyMonkey.AI results below.
 
-All first-evaluation work remains local. The production website was not edited or deployed; the GitHub remote was not updated.
+The Stephen concept remains non-production; its public source website was not edited or deployed. Its hotlinked image and historical reviews still require clearance before any public release.
 
 ## 2026-10-07 — Second real-site design-quality evaluation: HappyMonkey.AI
 
@@ -73,4 +73,4 @@ The owner asked for a second test to see whether the HTML Design Advisor could h
 
 ### Result and remaining
 
-The second case confirms a repeated limitation: the advisor's slide-deck-centered references do not give reliable website structure or purpose-aware ranking. General guidance was useful as a checklist; the prototype itself was human-authored. M6 remains in progress pending comparative owner/participant preference feedback and recommendation-ranking improvements. Both concepts remain local and unapproved; no commit, push, production edit or deployment was made.
+The second case confirms a repeated limitation: the advisor's slide-deck-centered references do not give reliable website structure or purpose-aware ranking. General guidance was useful as a checklist; the prototype itself was human-authored. M6 remains in progress pending comparative owner/participant preference feedback and recommendation-ranking improvements. Both concepts remain unapproved, non-production prototypes. Their source websites were not edited or deployed; the evaluation is stored in the existing private GitHub repository.
