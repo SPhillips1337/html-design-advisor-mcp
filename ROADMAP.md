@@ -2,9 +2,9 @@
 
 Product goal: a local, read-only MCP advisor that helps an AI client choose and review HTML page designs using the user's brief, local design references, and source/license evidence.
 
-Status: M0, M1, M2 provider-source research, and M4 are implemented and verified. M3's local reference recommender is implemented; website-specific catalog expansion remains constrained by per-asset license uncertainty. Hermes registration was saved/read back for M5, but its native MCP test is blocked by an Hermes-side SDK import/attribute error. The active Hermes dependency environment was not modified. Roadmap items do not authorize template downloads, project writes, or deployment.
+Status: M0, M1, M2 provider-source research, M3 relevance follow-up, and M4 are implemented and verified. M3 now has five curated linked website layouts and one interactive component reference alongside local slide decks; bundled asset rights remain unverified. Direct stdio MCP discovery and tool/resource calls passed. Roadmap items do not authorize template downloads, project writes, or deployment.
 
-Owner-authorized evaluation status: M6 now has local-only Stephen Phillips and HappyMonkey.AI homepage concepts. Both cases exposed weak website relevance in a slide-deck-centered recommender; the evaluations record this as a limitation, not a success claim. The concepts passed the MCP's heuristic source review; browser checks are documented per evaluation. Neither is approved as a replacement, and neither public site was changed.
+Owner-authorized evaluation status: M6 now has local-only Stephen Phillips and HappyMonkey.AI homepage concepts. Both cases exposed weak website relevance in the original slide-deck-centered recommender; the dated evaluations retain that historical result. The 2026-10-08 relevance follow-up improves ranking and records current outputs in `docs/research/2026-10-08-recommendation-baseline.md`. The concepts passed the MCP's heuristic source review; browser checks are documented per evaluation. Neither is approved as a replacement, and neither public site was changed.
 
 ## Milestone 0 — Working baseline (complete)
 
@@ -67,16 +67,9 @@ Goal: inspect a user-selected local HTML file for design implementation signals 
 
 Exit evidence: fixture tests and live MCP call confirm bounded inert parsing, outside-root/oversized rejection, line evidence, and caveats. Auditing defaults to this project directory rather than the broader sibling workspace.
 
-## Milestone 5 — Hermes client registration (saved; native test blocked)
+## Milestone 5 — MCP client protocol smoke (complete)
 
-Only after the local stdio server is stable:
-
-1. Save stdio configuration for the active Hermes CLI via its config command; read back the exact server entry.
-2. Run `hermes mcp test html-design-advisor`; it fails inside Hermes before connecting: `module 'tools.mcp_tool' has no attribute 'StdioServerParameters'`.
-3. Direct MCP Python stdio client passes initialize, tool/resource discovery, every tool call, and both resource reads.
-4. Do not change the shared Hermes MCP dependency without user authorization; see ignored `MCP.local.md`.
-
-Exit criteria (blocked): Hermes native client successfully initializes and invokes tools after the client SDK issue is resolved. No network exposure or auto-start persistence is configured.
+A direct MCP stdio client initialized the server, discovered all five tools and two resources, called every tool, and read both resources. Client-specific configuration is left to the user and their MCP host documentation.
 
 ## Milestone 6 — Real-site design quality evaluation (in progress)
 

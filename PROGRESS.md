@@ -29,8 +29,9 @@ The owner said the first visual concept looked nice and suggested reusing authen
 
 ### Work completed
 
-- Added one current-site portfolio screenshot as a direct remote image reference, not a copied asset. It is labeled as a general portfolio preview rather than associated with a specific project; client/asset rights need confirmation before public redistribution.
-- Added two publicly displayed reviews with their original wording, reviewer attribution and dates: Darren S. (20 June 2022) and Lead Forensics (9 November 2021). They are historical reviews and require owner confirmation before a public launch.
+- Added one current-site portfolio screenshot as a direct remote image reference, not a copied asset. It is labeled as a general portfolio preview rather than associated with a specific project.
+- Added two publicly displayed reviews with their original wording, reviewer attribution and dates: Darren S. (20 June 2022) and Lead Forensics (9 November 2021). They are identified as historical reviews and linked to their source context.
+- On 2026-10-08, the owner authorized including the evaluation in the public repository; the original site and attribution remain visible in the prototype.
 - Fixed an owner-reported contrast problem: the site-wide `footer` rule had unintentionally given each review byline a dark-green background while leaving its date muted. Scoped the dark treatment to `.site-footer`, then set review dates to 16px, bold, dark ink, stacked and left-aligned beneath names.
 - Unified the work rows' copy column so A1's description stays with its heading; the unrelated thumbnail is a distinct general portfolio preview.
 - Updated `README.md`, `CONTEXT.md`, `PLAN.md`, `ROADMAP.md`, `TASKS.md`, and this progress record to describe the user feedback, reused material, limitations and remaining clearance work.
@@ -44,11 +45,11 @@ The owner said the first visual concept looked nice and suggested reusing authen
 
 ### Remaining
 
-- Confirm image/client-asset rights and current testimonial/attribution status before any public release.
+- Owner authorized including this evaluation in the public repository. Keep the image linked to its current public source and the reviews attributed; this does not grant permission to redistribute these materials separately from the evaluation.
 - Obtain owner/representative feedback on a comparative design direction before calling the prototype preferred.
 - Improve recommendation relevance and negative constraints using both evaluations; see the HappyMonkey.AI results below.
 
-The Stephen concept remains non-production; its public source website was not edited or deployed. Its hotlinked image and historical reviews still require clearance before any public release.
+The Stephen concept remains non-production; its public source website was not edited or deployed. The public repository may include the evaluation under the owner's authorization, with the source link and review attribution preserved. The owner has not selected it as a production replacement.
 
 ## 2026-10-07 — Second real-site design-quality evaluation: HappyMonkey.AI
 

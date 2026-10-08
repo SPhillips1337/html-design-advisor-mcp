@@ -24,7 +24,7 @@ Give an AI client grounded, license-aware advice for designing HTML pages by con
 1. `search_templates(query, limit)` searches the local template index; limit is clamped to 1–20 and each result includes useful descriptive metadata. Missing/bad source index returns a safe empty result.
 2. `list_design_references()` reports known project names and whether their directories exist; it performs no writes and does not recurse through dependency directories.
 3. `get_design_guidance(brief)` returns actionable, brief-aware principles, including accessibility, responsive design, and untrusted-content safeguards.
-4. `recommend_design(...)` returns explainable matches and explicitly labels slide-deck items as visual references rather than website templates.
+4. `recommend_design(...)` returns explainable matches across curated linked website/component references and local slide decks. It weights page purpose, requires purpose or audience fit, reports known exclusions, gives an explicit `no_fit` result for no match, and labels slide decks as visual references rather than website templates. Rights status stays separate from fit.
 5. `audit_local_html(path)` reviews only the explicitly selected `.html`/`.htm` file within the configured audit root, caps input at 1 MB, and never executes it or returns page copy.
 6. `design-advisor://sources` returns source/terms URLs, review date, and verification state; provider-level terms must remain distinct from unverified template/package/asset rights.
 7. `design-advisor://local-assets` reports the actual local template count and the correct scope of the collection.
